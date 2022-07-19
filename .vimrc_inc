@@ -2,7 +2,7 @@
 let name_corp = "Hippo Verification"
 let dict_ext = {"svh":"//", "sv":"//", "v":"//", "py":"#", "pl":"#"}
 
-func SetHeader()
+func setHeader()
   let l_symbol = get(g:dict_ext, expand("%:e"), "//")  
 
   call setline(line(".")  ,  l_symbol)
