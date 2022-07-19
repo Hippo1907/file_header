@@ -5,4 +5,4 @@ source ~/.vimrc_inc
 let mapleader=","
 
 " Set shortcut to add header.
-nnoremap <leader>h :call setHeader()<CR>
+nnoremap <leader>h :call SetHeader()<CR>
