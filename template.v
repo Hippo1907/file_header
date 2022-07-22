@@ -22,3 +22,45 @@
 //   Description  :
 //--------------------------------------------------------------------------------------------------
 //
+
+
+
+//------------------------------------------------------------------------------
+//
+// CLASS: uvm_component
+//
+// The uvm_component class is the root base class for UVM components. In
+// addition to the features inherited from <uvm_object> and <uvm_report_object>,
+// uvm_component provides the following interfaces:
+//
+// Hierarchy - provides methods for searching and traversing the component
+//     hierarchy.
+...
+//
+// The uvm_component is automatically seeded during construction using UVM
+// seeding, if enabled. All other objects must be manually reseeded, if
+// appropriate. See <uvm_object::reseed> for more information.
+//
+//------------------------------------------------------------------------------
+
+virtual class uvm_component extends uvm_report_object;
+
+  // Task: run_phase
+  //
+  // The <uvm_run_phase> phase implementation method.
+  //
+  // The run_phase task should never be called directly.
+
+  extern virtual task run_phase(uvm_phase phase);
+
+
+  // Function: check_phase
+  //
+  // The <uvm_check_phase> phase implementation method.
+  //
+  // This method should never be called directly.
+
+  extern virtual function void check_phase(uvm_phase phase);
+
+
+endclass
