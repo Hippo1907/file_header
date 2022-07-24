@@ -35,6 +35,7 @@ func setHeader()
   call cursor(line(".")+24,0)
 endfunc
 
+
 " Function: SetFormat
 "
 " Add header and description for class/function/task
@@ -47,20 +48,22 @@ func SetFormat(type)
   if a:type == "class"
     let str = l_symbol . repeat("-", 100-strlen(l_symbol)-l_pos+1) . "\n"
 	    \ . l_indent . l_symbol . "\n"
-	    \ . l_indent . l_symbol . "CLASS: [TODO: class name]\n"
+	    \ . l_indent . l_symbol . " CLASS: [TODO: class name]\n"
 	    \ . l_indent . l_symbol . "\n"
-	    \ . l_indent . l_symbol . "[TODO: Add your description here]" . "\n" 
-	    \ . l_indent . l_symbol . "\n\n"
+	    \ . l_indent . l_symbol . " [TODO: Add your description here]" . "\n" 
+	    \ . l_indent . l_symbol . "\n"
+            \ . l_indent . l_symbol . repeat("-", 100-strlen(l_symbol)-l_pos+1) . "\n"
+	    \ . l_indent . l_symbol . "\n"
   elseif a:type == "function"
     let str = l_symbol . " Function: [TODO: Function name]\n"
 	    \ . l_indent . l_symbol . "\n"
-	    \ . l_indent . l_symbol . " [TODO: Add you description here]\n"
-	    \ . l_indent . l_symbol . "\n\n"
+	    \ . l_indent . l_symbol . " [TODO: Add you description here]\n\n"
+	    \ . l_indent
   elseif a:type == "task"
     let str = l_symbol . " Task: [TODO: Function name]\n"
 	    \ . l_indent . l_symbol . "\n"
-	    \ . l_indent . l_symbol . " [TODO: Add you description here]\n"
-	    \ . l_indent . l_symbol . "\n\n"
+	    \ . l_indent . l_symbol . " [TODO: Add you description here]\n\n"
+	    \ . l_indent
   endif
 	 
   return str
